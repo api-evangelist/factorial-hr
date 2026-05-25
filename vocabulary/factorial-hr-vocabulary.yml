@@ -1,0 +1,127 @@
+vocabulary: Factorial HR
+version: "0.1"
+description: >-
+  Operational and capability vocabulary for the Factorial HR public API. Maps
+  domain concepts to the API surface published at apidoc.factorialhr.com.
+provider: factorial
+domains:
+  - id: hr
+    name: Human Resources
+    concepts:
+      - employees
+      - contracts
+      - compensations
+      - documents
+      - custom-fields
+      - legal-entities
+      - locations
+      - holidays
+  - id: ats
+    name: Applicant Tracking
+    concepts:
+      - candidates
+      - applications
+      - application-phases
+      - job-postings
+      - feedback
+      - answers
+      - evaluation-forms
+  - id: time
+    name: Time Management
+    concepts:
+      - attendance-shifts
+      - attendance-breaks
+      - attendance-reviews
+      - overtime-requests
+      - timesheet-edits
+      - timeoff-leaves
+      - timeoff-allowances
+      - shift-management
+  - id: payroll
+    name: Payroll
+    concepts:
+      - payroll-supplements
+      - payroll-identifiers
+      - family-situations
+      - bookkeepers
+      - payroll-integrations
+  - id: finance
+    name: Finance & Accounting
+    concepts:
+      - banking-accounts
+      - banking-transactions
+      - ledger-accounts
+      - journal-entries
+      - tax-rates
+      - cost-centers
+      - budgets
+      - expenses
+      - mileage
+      - per-diems
+  - id: performance
+    name: Performance & Talent
+    concepts:
+      - performance-reviews
+      - performance-agreements
+      - evaluations
+      - trainings
+      - trainings-classes
+      - job-catalog-levels
+      - job-catalog-roles
+      - job-catalog-functions
+      - job-catalog-tree
+  - id: project
+    name: Project Management
+    concepts:
+      - projects
+      - subprojects
+      - tasks
+      - project-workers
+      - project-time-records
+      - budget-strategies
+  - id: it
+    name: IT Management
+    concepts:
+      - it-assets
+      - it-models
+      - saas-management
+      - mdm
+  - id: procurement
+    name: Procurement
+    concepts:
+      - purchase-orders
+      - purchase-requests
+      - purchase-types
+  - id: communities
+    name: Communities & Posts
+    concepts:
+      - groups
+      - posts
+      - comments
+  - id: platform
+    name: Platform & Integrations
+    concepts:
+      - api-keys
+      - oauth-applications
+      - oauth-scopes
+      - webhooks
+      - approvals
+      - integrations-framework
+      - marketplace
+auth:
+  - oauth2-authorization-code
+  - api-key-header-x-api-key
+environments:
+  - id: production
+    baseUrl: https://api.factorialhr.com/api
+  - id: demo
+    baseUrl: https://api.demo.factorialhr.com/api
+versioning:
+  strategy: date-based-major
+  current: "2026-04-01"
+  recent:
+    - "2026-04-01"
+    - "2026-01-01"
+    - "2025-10-01"
+    - "2025-07-01"
+    - "2025-04-01"

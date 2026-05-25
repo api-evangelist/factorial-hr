@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/factorial-hr/main/json-schema/factorial-employee-schema.json",
+  "title": "Factorial Employee",
+  "description": "An employee record in Factorial HR. Mirrors the Employee schema exposed by the public Core Employees v2 API.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer", "description": "Unique identifier of the employee." },
+    "email": { "type": "string", "format": "email" },
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "birthday_on": { "type": "string", "format": "date" },
+    "role": { "type": "string", "enum": ["basic", "admin"] },
+    "terminated_on": { "type": "string", "format": "date" },
+    "gender": { "type": "string", "enum": ["male", "female"] },
+    "nationality": { "type": "string", "description": "ISO 3166-1 alpha-2 country code of nationality." },
+    "bank_number": { "type": "string" },
+    "swift_bic": { "type": "string" },
+    "country": { "type": "string", "description": "ISO 3166-1 alpha-2 country code." },
+    "city": { "type": "string" },
+    "state": { "type": "string" },
+    "postal_code": { "type": "string" },
+    "address_line_1": { "type": "string" },
+    "address_line_2": { "type": "string" },
+    "identifier": { "type": "string", "description": "National identifier (e.g. Spanish DNI/NIE)." },
+    "company_id": { "type": "integer" },
+    "legal_entity_id": { "type": "integer" },
+    "manager_id": { "type": "integer" },
+    "timeoff_manager_id": { "type": "integer" }
+  },
+  "required": ["email", "first_name", "last_name", "company_id"]
+}

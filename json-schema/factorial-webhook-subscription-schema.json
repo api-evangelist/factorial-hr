@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/factorial-hr/main/json-schema/factorial-webhook-subscription-schema.json",
+  "title": "Factorial Webhook Subscription",
+  "description": "Represents a Factorial webhook subscription delivering POST notifications to a target URL when the configured event fires.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "type": {
+      "type": "string",
+      "description": "The Factorial event type the subscription listens to.",
+      "enum": [
+        "employee_invited",
+        "employee_created",
+        "employee_terminated",
+        "employee_unterminated",
+        "attendance_clockin",
+        "attendance_clockout",
+        "ats_application_created",
+        "ats_application_updated",
+        "ats_job_posting_created",
+        "ats_job_posting_updated",
+        "ats_job_posting_deleted",
+        "timeoff_leave_created",
+        "timeoff_leave_updated",
+        "timeoff_leave_approved",
+        "document_created"
+      ]
+    },
+    "target_url": { "type": "string", "format": "uri" },
+    "active": { "type": "boolean" },
+    "company_id": { "type": "integer" },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["type", "target_url"]
+}

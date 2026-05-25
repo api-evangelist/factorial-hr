@@ -1,0 +1,26 @@
+{
+  "request": {
+    "email": "new.hire@factorial.co",
+    "first_name": "Marta",
+    "last_name": "Garcia",
+    "birthday_on": "1995-02-14",
+    "role": "basic",
+    "gender": "female",
+    "nationality": "ES",
+    "country": "ES",
+    "city": "Valencia",
+    "company_id": 5,
+    "legal_entity_id": 5,
+    "manager_id": 12
+  },
+  "response": {
+    "id": 4711,
+    "email": "new.hire@factorial.co",
+    "first_name": "Marta",
+    "last_name": "Garcia",
+    "role": "basic",
+    "company_id": 5,
+    "legal_entity_id": 5,
+    "manager_id": 12
+  }
+}

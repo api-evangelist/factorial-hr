@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "factorial": "https://api.factorialhr.com/api/2026-04-01/vocab#",
+    "Employee": "schema:Person",
+    "Organization": "schema:Organization",
+    "LegalEntity": "schema:Organization",
+    "JobPosting": "schema:JobPosting",
+    "id": "@id",
+    "type": "@type",
+    "email": "schema:email",
+    "first_name": "schema:givenName",
+    "last_name": "schema:familyName",
+    "birthday_on": "schema:birthDate",
+    "gender": "schema:gender",
+    "nationality": "schema:nationality",
+    "country": "schema:addressCountry",
+    "city": "schema:addressLocality",
+    "state": "schema:addressRegion",
+    "postal_code": "schema:postalCode",
+    "address_line_1": "schema:streetAddress",
+    "company_id": "factorial:companyId",
+    "legal_entity_id": "factorial:legalEntityId",
+    "manager_id": "factorial:managerId",
+    "timeoff_manager_id": "factorial:timeoffManagerId",
+    "role": "factorial:role",
+    "terminated_on": "factorial:terminatedOn",
+    "bank_number": "schema:identifier",
+    "swift_bic": "factorial:swiftBic",
+    "identifier": "schema:identifier"
+  }
+}

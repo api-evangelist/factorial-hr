@@ -1,0 +1,41 @@
+extends:
+  - spectral:oas
+rules:
+  factorial-operation-summary-title-case:
+    description: >-
+      Factorial operation summaries should use Title Case to match the rest
+      of the API Evangelist catalog.
+    severity: warn
+    given: "$.paths.*[get,put,post,delete,patch].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+  factorial-operation-id-camel-case:
+    description: Operation IDs should be camelCase verbs (listEmployees, createEmployee, ...).
+    severity: warn
+    given: "$.paths.*[get,put,post,delete,patch].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+  factorial-prefer-bearer-or-api-key:
+    description: Endpoints must declare one of the two supported auth schemes (oauth2 or apikey).
+    severity: error
+    given: "$.security[*]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          minProperties: 1
+  factorial-server-must-be-canonical:
+    description: Only the canonical Factorial production and demo bases should appear in `servers`.
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - https://api.factorialhr.com/api
+          - https://api.demo.factorialhr.com/api

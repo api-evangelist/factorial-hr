@@ -1,0 +1,45 @@
+specification: API Commons Rate Limits
+specificationVersion: "0.1"
+provider: factorial
+name: Factorial API Rate Limits
+description: >-
+  Factorial does not publish a fixed, machine-readable rate-limit table in its
+  public docs; quotas are applied per OAuth application and per API key and may
+  vary across environments (production vs demo). This file captures the
+  observable controls and recommended client-side practices.
+url: https://apidoc.factorialhr.com/docs/faqs
+environments:
+  - id: production
+    baseUrl: https://api.factorialhr.com/api
+    notes: >-
+      Limits are enforced per credential (OAuth application or x-api-key
+      header). When a limit is exceeded the API returns HTTP 429 and clients
+      should back off exponentially.
+  - id: demo
+    baseUrl: https://api.demo.factorialhr.com/api
+    notes: Demo environment for integration testing; stricter limits may apply.
+controls:
+  - type: per-credential-throttle
+    description: >-
+      Each OAuth access token and each x-api-key is throttled independently.
+      Bulk endpoints (e.g. bulk-create-update on memberships) are intended
+      precisely to reduce request counts.
+  - type: pagination
+    description: >-
+      List endpoints are paginated. Clients must follow cursors rather than
+      sweep large pages to avoid throttling. See
+      https://apidoc.factorialhr.com/docs/pagination
+  - type: webhook-retries
+    description: >-
+      Outbound webhook deliveries are retried on failure with a delay; consumer
+      endpoints must be idempotent.
+recommendations:
+  - Implement exponential backoff on HTTP 429 and 5xx responses.
+  - Use the demo environment for load and integration tests, not production.
+  - Subscribe to webhooks instead of polling list endpoints where possible.
+  - Use bulk endpoints (where provided) instead of per-record loops.
+sources:
+  - https://apidoc.factorialhr.com/docs/faqs
+  - https://apidoc.factorialhr.com/docs/pagination
+  - https://apidoc.factorialhr.com/docs/webhooks-policies
+updated: "2026-05-25"

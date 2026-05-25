@@ -1,0 +1,105 @@
+specification: API Commons Plans
+specificationVersion: "0.1"
+provider: factorial
+name: Factorial Plans and Pricing
+description: >-
+  Factorial is sold as a modular subscription. Every plan includes "Factorial
+  Core" (employee directory, onboarding/offboarding, payslip distribution, bulk
+  document sending, legal e-signature, custom notifications, fillable PDFs).
+  Customers then add optional modules — Time, Talent, Finance, IT — and pricing
+  is tailored per customer. The published anchor price is $8/user/month.
+url: https://factorialhr.com/pricing
+plans:
+  - id: core
+    name: Factorial Core
+    entries:
+      - geo: Global
+        unit: 1
+        label: User
+        limit: 1
+        price: 8
+        metric: user
+        timeFrame: month
+        description: Starting price per user per month. Final pricing depends on selected modules.
+    elements:
+      - name: Employee directory
+      - name: Onboarding and offboarding
+      - name: Payslip distribution
+      - name: Bulk document sending
+      - name: Legal e-signature
+      - name: Custom notifications
+      - name: Fillable PDFs
+      - name: Open API access (OAuth2 and API keys)
+      - name: Webhooks
+    description: Core subscription that every customer gets. Modules below extend it.
+  - id: time-management
+    name: Time Management add-ons
+    entries:
+      - geo: Global
+        unit: 1
+        label: Quote
+        limit: 1
+        price: Call
+        metric: user
+        timeFrame: month
+        description: Per-user add-on pricing quoted on request.
+    elements:
+      - name: Time Off
+      - name: Time Tracking
+      - name: Shift Management
+      - name: Project Management
+    description: Time-related modules layered on top of Core.
+  - id: talent-management
+    name: Talent Management add-ons
+    entries:
+      - geo: Global
+        unit: 1
+        label: Quote
+        limit: 1
+        price: Call
+        metric: user
+        timeFrame: month
+        description: Per-user add-on pricing quoted on request.
+    elements:
+      - name: Performance reviews
+      - name: Recruitment / ATS
+      - name: Training Management
+      - name: Engagement tools
+    description: Talent modules covering ATS, performance, training, and engagement.
+  - id: finance
+    name: Finance add-ons
+    entries:
+      - geo: Global
+        unit: 1
+        label: Quote
+        limit: 1
+        price: Call
+        metric: user
+        timeFrame: month
+        description: Per-user add-on pricing quoted on request.
+    elements:
+      - name: Expense management
+      - name: Project Management
+      - name: Procurement
+    description: Finance, expenses, and procurement modules.
+  - id: it-management
+    name: IT Management add-ons
+    entries:
+      - geo: Global
+        unit: 1
+        label: Quote
+        limit: 1
+        price: Call
+        metric: user
+        timeFrame: month
+        description: Per-user add-on pricing quoted on request.
+    elements:
+      - name: SaaS Management
+      - name: IT Inventory
+      - name: Device Management (MDM)
+      - name: Cybersecurity / EDR
+    description: IT-side modules for SaaS, devices, and security.
+sources:
+  - https://factorialhr.com/pricing
+  - https://apidoc.factorialhr.com/
+updated: "2026-05-25"

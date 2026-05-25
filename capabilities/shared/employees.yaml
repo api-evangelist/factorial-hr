@@ -1,0 +1,42 @@
+apiVersion: naftiko.dev/v1alpha1
+kind: Capability
+metadata:
+  name: factorial-employees
+  labels:
+    provider: factorial
+    domain: hr
+    resource: employee
+spec:
+  title: Factorial Employees
+  description: >-
+    Manage the Factorial employee directory: list, read, create, and update
+    employee records via the Core Employees v2 API.
+  api:
+    provider: factorial
+    title: Factorial Core Employees API
+    openapi: ../../openapi/factorial-openapi.yml
+    baseUrl: https://api.factorialhr.com/api
+  auth:
+    schemes:
+      - oauth2
+      - apiKey
+    scopes:
+      - employees
+      - employee_updates
+  operations:
+    - id: listEmployees
+      method: GET
+      path: /v2/core/employees
+      summary: List employees in a company.
+    - id: getEmployee
+      method: GET
+      path: /v2/core/employees/{id}
+      summary: Retrieve a single employee by ID.
+    - id: createEmployee
+      method: POST
+      path: /v2/core/employees
+      summary: Create a new employee record.
+    - id: updateEmployee
+      method: PUT
+      path: /v2/core/employees/{id}
+      summary: Update an existing employee record.

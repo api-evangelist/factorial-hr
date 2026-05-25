@@ -1,0 +1,10 @@
+{
+  "id": 42,
+  "email": "kin@apievangelist.com",
+  "first_name": "Kin",
+  "last_name": "Lane",
+  "admin": false,
+  "company_id": 5,
+  "locale": "en",
+  "time_zone": "Europe/Madrid"
+}

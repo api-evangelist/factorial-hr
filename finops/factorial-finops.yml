@@ -1,0 +1,60 @@
+specification: FinOps Framework alignment (FOCUS-inspired)
+specificationVersion: "0.1"
+provider: factorial
+name: Factorial FinOps Definition
+description: >-
+  FinOps view of the Factorial billing surface. Factorial is sold as a modular
+  per-seat SaaS subscription with a published anchor of $8/user/month plus
+  optional add-on modules priced on request. There is no public usage-metered
+  pricing for the API itself; API access is included in the seat subscription.
+billingModel: per-seat-subscription
+currency: USD
+chargeCategories:
+  - id: subscription-core
+    name: Core Subscription
+    description: Per-user-per-month seat fee for Factorial Core.
+    pricingMechanism: per-seat
+    unit: user
+    timeFrame: month
+    publishedPrice: 8
+  - id: subscription-addon
+    name: Module Add-ons
+    description: >-
+      Time, Talent, Finance, and IT modules added on top of Core. Priced per
+      user per module and quoted by Factorial sales.
+    pricingMechanism: per-seat
+    unit: user
+    timeFrame: month
+    publishedPrice: null
+  - id: api-usage
+    name: API Usage
+    description: >-
+      API access (OAuth2 and API keys) is bundled with the seat subscription;
+      no per-request charges are published.
+    pricingMechanism: included
+    unit: request
+    publishedPrice: 0
+allocationDimensions:
+  - companyId
+  - legalEntityId
+  - costCenterId
+  - moduleId
+  - userId
+costRecoveryHooks:
+  - apiSurface: /api/2026-04-01/resources/finance/cost-centers
+    description: Cost centers in Factorial can be used to allocate Factorial license cost back to internal cost owners.
+  - apiSurface: /api/2026-04-01/resources/finance/cost-center-memberships
+    description: Per-employee cost center membership percentages enable splitting seat cost across cost centers.
+practices:
+  inform:
+    - Tag licenses to cost centers via cost-center-memberships to enable showback.
+    - Use the Reports surface in the Factorial console to view seat consumption per legal entity.
+  optimize:
+    - Deactivate seats for terminated employees promptly via the employee_terminated lifecycle.
+    - Audit unused modules and renegotiate add-on bundles annually.
+  operate:
+    - Configure webhook subscriptions for employee_created and employee_terminated to keep downstream HRIS/finance systems aligned in real time.
+sources:
+  - https://factorialhr.com/pricing
+  - https://apidoc.factorialhr.com/
+updated: "2026-05-25"
