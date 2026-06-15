@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Factorial API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "/oauth/authorize",
+      "accessTokenUrl": "/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Core::Employees::V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Employees From a Company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.factorialhr.com/api/v2/core/employees",
+            "params": [
+              {
+                "name": "full_text_name",
+                "value": "Bob Stone",
+                "type": "query",
+                "description": "Retrieves the list of employees by full names"
+              }
+            ]
+          },
+          "docs": "Only `admins` can see all the employees' information, `regular users` will get a restricted version of the payload as a response based on the permission set by the admin"
+        },
+        {
+          "info": {
+            "name": "Create Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.factorialhr.com/api/v2/core/employees",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create employee"
+        },
+        {
+          "info": {
+            "name": "Get Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.factorialhr.com/api/v2/core/employees/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "5",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Only admins can see all the employees' information, regular users will get a restricted version of the payload as a response based on the permission set by the admin"
+        },
+        {
+          "info": {
+            "name": "Update Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.factorialhr.com/api/v2/core/employees/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "<integer>",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update employee"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Core::Me",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Information About Current User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.factorialhr.com/api/v1/me"
+          },
+          "docs": "After token grant, get information of the token holder"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
