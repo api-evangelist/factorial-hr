@@ -20,11 +20,11 @@ apis:
       - url: json-ld/factorial-hr-context.jsonld
         type: JSONLD
       - url: examples/factorial-list-employees-example.json
-        type: Example
+        type: Examples
       - url: examples/factorial-create-employee-example.json
-        type: Example
+        type: Examples
       - url: examples/factorial-get-current-user-example.json
-        type: Example
+        type: Examples
     description: >-
       List, read, create, and update employees in the Factorial HR directory. The Core Employees v2 API exposes a clean,
       non-data-intensive employee record (replacing the legacy v1 shape) plus the /v1/me endpoint for identifying the
@@ -389,7 +389,7 @@ common:
     url: https://apidoc.factorialhr.com/docs/finance-integrations
   - type: Pricing
     url: https://factorialhr.com/pricing
-  - type: SignUp
+  - type: Signup
     url: https://factorialhr.com/signup
   - type: Login
     url: https://app.factorialhr.com/users/sign_in
@@ -403,28 +403,28 @@ common:
     url: https://apidoc.factorialhr.com/docs/contact-page
   - type: GitHubOrganization
     url: https://github.com/factorialco
-  - type: SDK
+  - type: SDKs
     name: OpenAPI Schema Repository
     url: https://github.com/factorialco/oas
-  - type: SDK
+  - type: SDKs
     name: Ruby SDK (generated)
     url: https://github.com/factorialco/oas/tree/main/sdk-ruby
-  - type: SDK
+  - type: SDKs
     name: Python SDK (generated)
     url: https://github.com/factorialco/oas/tree/main/sdk-python
-  - type: SDK
+  - type: SDKs
     name: Java SDK (generated)
     url: https://github.com/factorialco/oas/tree/main/sdk-java
-  - type: SDK
+  - type: SDKs
     name: PHP SDK (generated)
     url: https://github.com/factorialco/oas/tree/main/sdk-php
-  - type: SDK
+  - type: SDKs
     name: TypeScript Axios SDK (generated)
     url: https://github.com/factorialco/oas/tree/main/sdk-typescript-axios
-  - type: SDK
+  - type: SDKs
     name: Node.js Server SDK (generated)
     url: https://github.com/factorialco/oas/tree/main/sdk-nodejs-server
-  - type: Tool
+  - type: Tools
     name: f0 Design System
     url: https://github.com/factorialco/f0
   - type: PrivacyPolicy
