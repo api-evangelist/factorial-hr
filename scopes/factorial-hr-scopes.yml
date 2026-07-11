@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/factorial-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/factorial-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: /oauth/authorize
+    tokenUrl: /oauth/token
+scopes:
+- scope: read
+  description: Required for all operations
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/factorial-openapi.yml
+- scope: write
+  description: Required for write operations
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/factorial-openapi.yml
