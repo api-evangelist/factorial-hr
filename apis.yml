@@ -335,6 +335,14 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+  - type: TrustCenter
+    url: security/factorial-hr-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/factorial-hr-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/factorial-hr-domain-security.yml
+  - type: Authentication
+    url: authentication/factorial-hr-authentication.yml
   - type: OAuthScopes
     url: scopes/factorial-hr-scopes.yml
   - type: Portal
