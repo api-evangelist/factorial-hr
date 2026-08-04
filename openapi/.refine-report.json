@@ -1,0 +1,16 @@
+{
+  "provider": "factorial-hr",
+  "sources": [
+    "factorial-hr-core-employees-v2-api-openapi.yml",
+    "factorial-hr-core-me-api-openapi.yml"
+  ],
+  "outputs": [
+    "factorial-hr-core-employees-v2-api-openapi.yml",
+    "factorial-hr-core-me-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
