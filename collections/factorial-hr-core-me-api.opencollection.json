@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Factorial Core::Employees::V2 Core::Me API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "/oauth/authorize",
+      "accessTokenUrl": "/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Core::Me",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Information About Current User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.factorialhr.com/api/v1/me"
+          },
+          "docs": "After token grant, get information of the token holder"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
