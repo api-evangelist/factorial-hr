@@ -5,6 +5,10 @@ apis:
   name: Factorial Webhooks API
   tags:
   - HR
+  - Webhook
+  - Event
+  tags_raw:
+  - HR
   - Webhooks
   - Events
   humanURL: https://apidoc.factorialhr.com/docs/manage-webhooks
@@ -175,6 +179,10 @@ apis:
 - aid: factorial:factorial-project-management-api
   name: Factorial Project Management API
   tags:
+  - Project
+  - Task
+  - Time Tracking
+  tags_raw:
   - Projects
   - Tasks
   - Time Tracking
@@ -236,6 +244,10 @@ apis:
   tags:
   - Communities
   - Posts
+  - Communications
+  tags_raw:
+  - Communities
+  - Posts
   - Communication
   humanURL: https://apidoc.factorialhr.com/reference
   properties:
@@ -247,6 +259,9 @@ apis:
 - aid: factorial:factorial-marketplace-integrations-api
   name: Factorial Marketplace and Integrations API
   tags:
+  - Integration
+  - Marketplace
+  tags_raw:
   - Integrations
   - Marketplace
   humanURL: https://apidoc.factorialhr.com/docs/integrations-framework
@@ -259,6 +274,9 @@ apis:
 - aid: factorial:factorial-keys-oauth-api
   name: Factorial Keys and OAuth API
   tags:
+  - Authentication
+  - APIKeys
+  tags_raw:
   - Authentication
   - OAuth2
   - API Keys
