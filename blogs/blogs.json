@@ -2,35 +2,29 @@
   "repo": "factorial-hr",
   "feeds": [
     {
-      "source": "https://factorial.statuspage.io/history.atom",
+      "source": "https://factorial.statuspage.io/",
       "feed_url": "https://factorial.statuspage.io/history.atom",
       "title": "",
       "saved": 0,
-      "method": "feed",
-      "nature": "undetermined",
-      "nature_basis": null
+      "method": "discovered"
     },
     {
       "source": "https://factorialhr.com/blog/feed/",
       "feed_url": "https://factorialhr.com/blog/feed/",
       "title": "",
       "saved": 0,
-      "method": "feed",
-      "nature": "vendor-blog",
-      "nature_basis": "path_blog"
+      "method": "feed"
     },
     {
-      "source": "https://factorial.statuspage.io/",
+      "source": "https://factorial.statuspage.io/history.atom",
       "feed_url": "https://factorial.statuspage.io/history.atom",
       "title": "",
       "saved": 0,
-      "method": "discovered",
-      "nature": "undetermined",
-      "nature_basis": null
+      "method": "feed"
     }
   ],
-  "post_count": 54,
-  "fetched": "2026-08-30T22:33:40Z",
+  "post_count": 55,
+  "fetched": "2026-09-06T19:17:18Z",
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
   "feed_nature_note": "Whether these posts are the vendor publishing or its support community, decided on the URL path grammar of the saved posts -- not the hostname, which carries both on Khoros, and not author diversity, which flags large vendor blogs as forums. 'undetermined' means undetermined."
