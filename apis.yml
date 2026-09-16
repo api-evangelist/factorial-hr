@@ -23,7 +23,11 @@ apis:
     type: Documentation
   - url: json-schema/factorial-webhook-subscription-schema.json
     type: JSONSchema
-  description: Subscribe to lifecycle events fired by Factorial (employee created, employee terminated, attendance clock-in/out, ATS application created/updated, time-off leave created/approved, document created, etc.). Factorial POSTs the event payload to your target URL and retries on failure; consumer endpoints must be idempotent.
+  description: >-
+    Subscribe to lifecycle events fired by Factorial (employee created, employee terminated, attendance
+    clock-in/out, ATS application created/updated, time-off leave created/approved, document created,
+    etc.). Factorial POSTs the event payload to your target URL and retries on failure; consumer endpoints
+    must be idempotent.
 - aid: factorial:factorial-ats-api
   name: Factorial ATS API
   tags:
@@ -34,7 +38,10 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Applicant Tracking surface — Candidates, Applications, Application Phases, Job Postings, Feedback, Evaluation Forms, Answers. Read, create, update, and delete candidates and applications, plus phase progression and structured feedback collection. Part of the dated 2026-04-01 resource API.
+  description: >-
+    Applicant Tracking surface — Candidates, Applications, Application Phases, Job Postings, Feedback,
+    Evaluation Forms, Answers. Read, create, update, and delete candidates and applications, plus phase
+    progression and structured feedback collection. Part of the dated 2026-04-01 resource API.
 - aid: factorial:factorial-attendance-api
   name: Factorial Attendance API
   tags:
@@ -45,7 +52,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Manage attendance shifts, breaks, overtime requests, timesheet edits, and attendance reviews. v2026-04-01 introduces an api_source field on shift DTOs so integrations can identify themselves on clock operations.
+  description: >-
+    Manage attendance shifts, breaks, overtime requests, timesheet edits, and attendance reviews. v2026-04-01
+    introduces an api_source field on shift DTOs so integrations can identify themselves on clock operations.
 - aid: factorial:factorial-time-off-api
   name: Factorial Time Off API
   tags:
@@ -56,7 +65,10 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Time-off leaves, leave types, and time-off allowances with enriched statistics. Trigger webhooks on leave creation, update, and approval. Combine with the Approvals API to programmatically approve or reject pending leaves.
+  description: >-
+    Time-off leaves, leave types, and time-off allowances with enriched statistics. Trigger webhooks on
+    leave creation, update, and approval. Combine with the Approvals API to programmatically approve or
+    reject pending leaves.
 - aid: factorial:factorial-contracts-compensations-api
   name: Factorial Contracts and Compensations API
   tags:
@@ -67,7 +79,10 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Manage contract versions and compensation records. v2026-04-01 is a breaking-change release that removes legacy job catalog fields (job_title, professional_category_id, professional_category_description) in favour of job_catalog_tree_node_uuid, and adds richer fields for German and Spanish payroll integrations.
+  description: >-
+    Manage contract versions and compensation records. v2026-04-01 is a breaking-change release that removes
+    legacy job catalog fields (job_title, professional_category_id, professional_category_description)
+    in favour of job_catalog_tree_node_uuid, and adds richer fields for German and Spanish payroll integrations.
 - aid: factorial:factorial-payroll-api
   name: Factorial Payroll API
   tags:
@@ -80,7 +95,9 @@ apis:
     type: Documentation
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Payroll supplements, payroll identifiers, family situations, and bookkeeper resources. Backs Factorial's integrations with country- specific payroll engines.
+  description: >-
+    Payroll supplements, payroll identifiers, family situations, and bookkeeper resources. Backs Factorial's
+    integrations with country- specific payroll engines.
 - aid: factorial:factorial-finance-banking-api
   name: Factorial Finance and Banking API
   tags:
@@ -93,7 +110,10 @@ apis:
     type: Documentation
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Bank accounts, transactions, ledger accounts, journal entries, tax rates and tax types, cost centers, cost center memberships, and budgets. Cost center memberships are bulk-updatable so percentage splits can be applied atomically per employee.
+  description: >-
+    Bank accounts, transactions, ledger accounts, journal entries, tax rates and tax types, cost centers,
+    cost center memberships, and budgets. Cost center memberships are bulk-updatable so percentage splits
+    can be applied atomically per employee.
 - aid: factorial:factorial-expenses-api
   name: Factorial Expenses API
   tags:
@@ -115,7 +135,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Manage company- and employee-scoped documents and folders. Create, update, retrieve, and delete documents, request legal e-signatures, and fire document_created webhook events. Admin-only for document creation.
+  description: >-
+    Manage company- and employee-scoped documents and folders. Create, update, retrieve, and delete documents,
+    request legal e-signatures, and fire document_created webhook events. Admin-only for document creation.
 - aid: factorial:factorial-performance-api
   name: Factorial Performance API
   tags:
@@ -126,7 +148,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Performance reviews, review processes, evaluations, and performance agreements. Configurable review cycles backed by the Job Catalog Tree introduced in v2026-01-01.
+  description: >-
+    Performance reviews, review processes, evaluations, and performance agreements. Configurable review
+    cycles backed by the Job Catalog Tree introduced in v2026-01-01.
 - aid: factorial:factorial-trainings-api
   name: Factorial Trainings API
   tags:
@@ -137,7 +161,8 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Manage training programs and training classes, expanded in v2026-04-01 with new class-level capabilities.
+  description: >-
+    Manage training programs and training classes, expanded in v2026-04-01 with new class-level capabilities.
 - aid: factorial:factorial-job-catalog-api
   name: Factorial Job Catalog API
   tags:
@@ -148,7 +173,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Job levels, roles, functions, and the hierarchical Job Catalog Tree introduced in v2026-01-01. Replaces the legacy free-text job_title on contracts via job_catalog_tree_node_uuid.
+  description: >-
+    Job levels, roles, functions, and the hierarchical Job Catalog Tree introduced in v2026-01-01. Replaces
+    the legacy free-text job_title on contracts via job_catalog_tree_node_uuid.
 - aid: factorial:factorial-project-management-api
   name: Factorial Project Management API
   tags:
@@ -163,7 +190,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Projects, subprojects, tasks, project workers, planned and flexible time records, and budget strategies (full CRUD added in v2026-04-01).
+  description: >-
+    Projects, subprojects, tasks, project workers, planned and flexible time records, and budget strategies
+    (full CRUD added in v2026-04-01).
 - aid: factorial:factorial-it-management-api
   name: Factorial IT Management API
   tags:
@@ -174,7 +203,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: IT asset and IT model endpoints (added in v2026-01-01) backing the SaaS, Inventory, MDM, and Cybersecurity modules.
+  description: >-
+    IT asset and IT model endpoints (added in v2026-01-01) backing the SaaS, Inventory, MDM, and Cybersecurity
+    modules.
 - aid: factorial:factorial-procurement-api
   name: Factorial Procurement API
   tags:
@@ -194,7 +225,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Programmatically approve or reject pending steps of a materialized approval flow, either by id or by resource_id+resource_type. Added in v2026-04-01.
+  description: >-
+    Programmatically approve or reject pending steps of a materialized approval flow, either by id or
+    by resource_id+resource_type. Added in v2026-04-01.
 - aid: factorial:factorial-locations-holidays-api
   name: Factorial Locations and Holidays API
   tags:
@@ -220,7 +253,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/reference
     type: Documentation
-  description: Groups, posts, and comments backing the Communities V2 feature. Requires Communities V2 to be enabled on the company.
+  description: >-
+    Groups, posts, and comments backing the Communities V2 feature. Requires Communities V2 to be enabled
+    on the company.
 - aid: factorial:factorial-marketplace-integrations-api
   name: Factorial Marketplace and Integrations API
   tags:
@@ -233,7 +268,9 @@ apis:
   properties:
   - url: https://apidoc.factorialhr.com/docs/integrations-framework
     type: Documentation
-  description: Integrations Framework and Marketplace endpoints used by partner integrations to register, surface, and operate within the Factorial app.
+  description: >-
+    Integrations Framework and Marketplace endpoints used by partner integrations to register, surface,
+    and operate within the Factorial app.
 - aid: factorial:factorial-keys-oauth-api
   name: Factorial Keys and OAuth API
   tags:
@@ -255,7 +292,11 @@ apis:
     type: Documentation
   - url: https://apidoc.factorialhr.com/docs/oauth2-partner-guide
     type: Documentation
-  description: Two authentication methods. OAuth2 (authorization code flow at /oauth/authorize and /oauth/token) is used to act on behalf of a user; Credentials/API Keys (x-api-key header) are used to act on behalf of the company with full admin access. API Keys overrule OAuth tokens when both are present on the same request.
+  description: >-
+    Two authentication methods. OAuth2 (authorization code flow at /oauth/authorize and /oauth/token)
+    is used to act on behalf of a user; Credentials/API Keys (x-api-key header) are used to act on behalf
+    of the company with full admin access. API Keys overrule OAuth tokens when both are present on the
+    same request.
 - aid: factorial-hr:factorial-hr-core-employees-v2-api
   name: Factorial Core::Employees::V2 API
   description: The Core::Employees::V2 API from Factorial — 2 operation(s) for core::employees::v2.
@@ -304,7 +345,10 @@ apis:
     url: examples/factorial-get-current-user-example.json
 - aid: factorial-hr:developer-api
   name: Factorial Developer API
-  description: Versioned REST API for managing employees, contracts, leaves, attendance shifts, time off, documents, and other HR resources in Factorial. Supports API key (Bearer token) and OAuth 2.0 authentication, with separate production and demo environments.
+  description: >-
+    Versioned REST API for managing employees, contracts, leaves, attendance shifts, time off, documents,
+    and other HR resources in Factorial. Supports API key (Bearer token) and OAuth 2.0 authentication,
+    with separate production and demo environments.
   humanURL: https://apidoc.factorialhr.com
   baseURL: https://api.factorialhr.com
   tags:
@@ -323,16 +367,16 @@ apis:
     url: https://apidoc.factorialhr.com/docs/authentication
   - type: Environments
     url: https://apidoc.factorialhr.com/docs/production-and-demo
-- aid: factorial-hr:factorial-resources-api
+- aid: factorial-hr:factorial-hr-resources-api
   name: Factorial Resources API
   description: The Resources API from Factorial — 16 operation(s) for resources.
-  humanURL: https://apidoc.factorialhr.com
+  humanURL: https://apidoc.factorialhr.com/docs/manage-webhooks
   baseURL: https://api.factorialhr.com
   tags:
   - Resources
   properties:
   - type: OpenAPI
-    url: openapi/factorial-resources-api-openapi.yml
+    url: openapi/factorial-hr-resources-api-openapi.yml
 name: Factorial
 tags:
 - HR
