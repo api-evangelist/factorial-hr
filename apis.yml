@@ -4,7 +4,7 @@ apis:
 - aid: factorial:factorial-webhooks-api
   name: Factorial Webhooks API
   tags:
-  - HR
+  - Human Resources
   - Webhook
   - Event
   tags_raw:
@@ -31,6 +31,10 @@ apis:
 - aid: factorial:factorial-ats-api
   name: Factorial ATS API
   tags:
+  - Human Resources
+  - Recruiting
+  - ATS
+  tags_raw:
   - HR
   - Recruiting
   - ATS
@@ -45,6 +49,10 @@ apis:
 - aid: factorial:factorial-attendance-api
   name: Factorial Attendance API
   tags:
+  - Human Resources
+  - Time
+  - Attendance
+  tags_raw:
   - HR
   - Time
   - Attendance
@@ -58,6 +66,10 @@ apis:
 - aid: factorial:factorial-time-off-api
   name: Factorial Time Off API
   tags:
+  - Human Resources
+  - Time Off
+  - PTO
+  tags_raw:
   - HR
   - Time Off
   - PTO
@@ -72,6 +84,10 @@ apis:
 - aid: factorial:factorial-contracts-compensations-api
   name: Factorial Contracts and Compensations API
   tags:
+  - Human Resources
+  - Contracts
+  - Compensation
+  tags_raw:
   - HR
   - Contracts
   - Compensation
@@ -86,6 +102,10 @@ apis:
 - aid: factorial:factorial-payroll-api
   name: Factorial Payroll API
   tags:
+  - Human Resources
+  - Payroll
+  - Finance
+  tags_raw:
   - HR
   - Payroll
   - Finance
@@ -128,6 +148,10 @@ apis:
 - aid: factorial:factorial-documents-api
   name: Factorial Documents API
   tags:
+  - Human Resources
+  - Documents
+  - E-Signature
+  tags_raw:
   - HR
   - Documents
   - E-Signature
@@ -141,6 +165,10 @@ apis:
 - aid: factorial:factorial-performance-api
   name: Factorial Performance API
   tags:
+  - Human Resources
+  - Performance
+  - Talent
+  tags_raw:
   - HR
   - Performance
   - Talent
@@ -154,6 +182,10 @@ apis:
 - aid: factorial:factorial-trainings-api
   name: Factorial Trainings API
   tags:
+  - Human Resources
+  - Training
+  - Learning
+  tags_raw:
   - HR
   - Training
   - Learning
@@ -166,6 +198,10 @@ apis:
 - aid: factorial:factorial-job-catalog-api
   name: Factorial Job Catalog API
   tags:
+  - Human Resources
+  - Job Catalog
+  - Levels
+  tags_raw:
   - HR
   - Job Catalog
   - Levels
@@ -231,6 +267,10 @@ apis:
 - aid: factorial:factorial-locations-holidays-api
   name: Factorial Locations and Holidays API
   tags:
+  - Human Resources
+  - Location
+  - Holidays
+  tags_raw:
   - HR
   - Locations
   - Holidays
@@ -379,6 +419,18 @@ apis:
     url: openapi/factorial-hr-resources-api-openapi.yml
 name: Factorial
 tags:
+- Human Resources
+- Payroll
+- Time Off
+- Time Tracking
+- ATS
+- Performance
+- Finance
+- Expenses
+- Spain
+- Barcelona
+- All-in-One
+tags_raw:
 - HR
 - Human Resources
 - Payroll
