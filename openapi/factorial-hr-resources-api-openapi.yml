@@ -1,0 +1,591 @@
+openapi: 3.2.0
+info:
+  title: Factorial Developer Resources API
+  description: 'Versioned REST API for Factorial HRIS. Path prefix includes a date
+
+    version (e.g. /api/2026-04-01/resources). Common HR resources
+
+    include employees, contracts, compensations, shifts, attendance,
+
+    overtime, leaves/time off, locations, payroll, documents, custom
+
+    fields, expenses, projects, and performance. Authentication
+
+    supports API keys (Bearer tokens) and OAuth 2.0 via the Factorial
+
+    developer portal.'
+  version: '2026-04-01'
+  contact:
+    name: Factorial API Docs
+    url: https://apidoc.factorialhr.com
+servers:
+- url: https://api.factorialhr.com/api/2026-04-01
+  description: Production
+- url: https://api.demo.factorial.dev/api/2026-04-01
+  description: Demo environment
+security:
+- ApiKey: []
+- OAuth2:
+  - read
+  - write
+tags:
+- name: Resources
+paths:
+  /resources/employees/employees:
+    get:
+      summary: List employees
+      operationId: listEmployees
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Employee collection
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Employee'
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      tags:
+      - Resources
+    post:
+      summary: Create an employee
+      operationId: createEmployee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '201':
+          description: Employee created
+      tags:
+      - Resources
+  /resources/employees/employees/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      summary: Get an employee
+      operationId: getEmployee
+      responses:
+        '200':
+          description: Employee
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+      tags:
+      - Resources
+    put:
+      summary: Update an employee
+      operationId: updateEmployee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '200':
+          description: Updated
+      tags:
+      - Resources
+  /resources/employees/employees/{id}/invite:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    post:
+      summary: Invite an employee to Factorial
+      operationId: inviteEmployee
+      responses:
+        '200':
+          description: Invitation sent
+      tags:
+      - Resources
+  /resources/employees/employees/{id}/terminate:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    post:
+      summary: Terminate an employee
+      operationId: terminateEmployee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                termination_date:
+                  type: string
+                  format: date
+                termination_reason:
+                  type: string
+      responses:
+        '200':
+          description: Terminated
+      tags:
+      - Resources
+  /resources/contracts/contract_versions:
+    get:
+      summary: List contract versions
+      operationId: listContractVersions
+      responses:
+        '200':
+          description: Contract versions
+      tags:
+      - Resources
+    post:
+      summary: Create a contract version
+      operationId: createContractVersion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+      tags:
+      - Resources
+  /resources/contracts/contract_versions/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      summary: Get a contract version
+      operationId: getContractVersion
+      responses:
+        '200':
+          description: Contract version
+      tags:
+      - Resources
+    put:
+      summary: Update a contract version
+      operationId: updateContractVersion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated
+      tags:
+      - Resources
+    delete:
+      summary: Delete a contract version
+      operationId: deleteContractVersion
+      responses:
+        '204':
+          description: Deleted
+      tags:
+      - Resources
+  /resources/attendance/shifts:
+    get:
+      summary: List attendance shifts
+      operationId: listShifts
+      parameters:
+      - name: employee_id
+        in: query
+        schema:
+          type: integer
+      - name: start_on
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: end_on
+        in: query
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Shifts collection
+      tags:
+      - Resources
+    post:
+      summary: Create an attendance shift (clock in)
+      operationId: createShift
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Shift'
+      responses:
+        '201':
+          description: Shift created
+      tags:
+      - Resources
+  /resources/attendance/shifts/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      summary: Get an attendance shift
+      operationId: getShift
+      responses:
+        '200':
+          description: Shift
+      tags:
+      - Resources
+    put:
+      summary: Update an attendance shift
+      operationId: updateShift
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Shift'
+      responses:
+        '200':
+          description: Updated
+      tags:
+      - Resources
+    delete:
+      summary: Delete an attendance shift
+      operationId: deleteShift
+      responses:
+        '204':
+          description: Deleted
+      tags:
+      - Resources
+  /resources/attendance/shifts/clock_in:
+    post:
+      summary: Clock in
+      operationId: clockIn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employee_id:
+                  type: integer
+                now:
+                  type: string
+                  format: date-time
+                location_type:
+                  type: string
+      responses:
+        '200':
+          description: Clocked in
+      tags:
+      - Resources
+  /resources/attendance/shifts/clock_out:
+    post:
+      summary: Clock out
+      operationId: clockOut
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employee_id:
+                  type: integer
+                now:
+                  type: string
+                  format: date-time
+      responses:
+        '200':
+          description: Clocked out
+      tags:
+      - Resources
+  /resources/time_off/leaves:
+    get:
+      summary: List leaves / time off requests
+      operationId: listLeaves
+      parameters:
+      - name: employee_id
+        in: query
+        schema:
+          type: integer
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Leaves collection
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Leave'
+      tags:
+      - Resources
+    post:
+      summary: Create a leave / time off request
+      operationId: createLeave
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leave'
+      responses:
+        '201':
+          description: Leave created
+      tags:
+      - Resources
+  /resources/time_off/leaves/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      summary: Get a leave
+      operationId: getLeave
+      responses:
+        '200':
+          description: Leave
+      tags:
+      - Resources
+    put:
+      summary: Update a leave
+      operationId: updateLeave
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leave'
+      responses:
+        '200':
+          description: Updated
+      tags:
+      - Resources
+    delete:
+      summary: Delete a leave
+      operationId: deleteLeave
+      responses:
+        '204':
+          description: Deleted
+      tags:
+      - Resources
+  /resources/payroll/supplements:
+    get:
+      summary: List payroll supplements
+      operationId: listSupplements
+      responses:
+        '200':
+          description: Supplements
+      tags:
+      - Resources
+    post:
+      summary: Create a payroll supplement
+      operationId: createSupplement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+      tags:
+      - Resources
+  /resources/companies/locations:
+    get:
+      summary: List company locations
+      operationId: listLocations
+      responses:
+        '200':
+          description: Locations
+      tags:
+      - Resources
+    post:
+      summary: Create a company location
+      operationId: createLocation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+      tags:
+      - Resources
+  /resources/employees/employee_updates:
+    get:
+      summary: List employee updates (new hires, terminations, contract changes, absences)
+      operationId: listEmployeeUpdates
+      parameters:
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Updates
+      tags:
+      - Resources
+  /resources/documents/documents:
+    get:
+      summary: List documents
+      operationId: listDocuments
+      responses:
+        '200':
+          description: Documents
+      tags:
+      - Resources
+    post:
+      summary: Upload a document
+      operationId: uploadDocument
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                employee_id:
+                  type: integer
+                folder_id:
+                  type: integer
+      responses:
+        '201':
+          description: Document uploaded
+      tags:
+      - Resources
+components:
+  schemas:
+    Leave:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        leave_type_id:
+          type: integer
+        start_on:
+          type: string
+          format: date
+        finish_on:
+          type: string
+          format: date
+        half_day:
+          type: string
+          enum:
+          - beginning_of_day
+          - end_of_day
+        description:
+          type: string
+    Employee:
+      type: object
+      properties:
+        id:
+          type: integer
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        birthday_on:
+          type: string
+          format: date
+        start_date:
+          type: string
+          format: date
+        job_title:
+          type: string
+        manager_id:
+          type: integer
+        team_ids:
+          type: array
+          items:
+            type: integer
+    Shift:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        clock_in:
+          type: string
+          format: date-time
+        clock_out:
+          type: string
+          format: date-time
+        observations:
+          type: string
+        location_type:
+          type: string
+    Meta:
+      type: object
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    PerPage:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
+  securitySchemes:
+    ApiKey:
+      type: http
+      scheme: bearer
+      description: API key issued from the Factorial settings panel.
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.factorialhr.com/oauth/authorize
+          tokenUrl: https://api.factorialhr.com/oauth/token
+          scopes:
+            read: Read HR data
+            write: Modify HR data

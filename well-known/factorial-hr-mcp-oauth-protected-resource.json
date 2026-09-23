@@ -1,0 +1,1 @@
+{"resource":"https://mcp.factorialhr.com/","authorization_servers":["https://mcp.factorialhr.com/"],"scopes_supported":["one:read","one:write","company_holidays","company_legal_entities","company_locations","employees","shift_management","tasks","time_off","time_tracking"],"resource_name":"Factorial MCP Server"}
