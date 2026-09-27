@@ -480,7 +480,53 @@ paths:
       tags:
       - Resources
 components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
+    PerPage:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
   schemas:
+    Meta:
+      type: object
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+    Shift:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        clock_in:
+          type: string
+          format: date-time
+        clock_out:
+          type: string
+          format: date-time
+        observations:
+          type: string
+        location_type:
+          type: string
     Leave:
       type: object
       properties:
@@ -529,52 +575,6 @@ components:
           type: array
           items:
             type: integer
-    Shift:
-      type: object
-      properties:
-        id:
-          type: integer
-        employee_id:
-          type: integer
-        clock_in:
-          type: string
-          format: date-time
-        clock_out:
-          type: string
-          format: date-time
-        observations:
-          type: string
-        location_type:
-          type: string
-    Meta:
-      type: object
-      properties:
-        page:
-          type: integer
-        per_page:
-          type: integer
-        total:
-          type: integer
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
-    PerPage:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
-    Page:
-      name: page
-      in: query
-      schema:
-        type: integer
-        default: 1
   securitySchemes:
     ApiKey:
       type: http

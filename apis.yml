@@ -33,7 +33,7 @@ apis:
   tags:
   - Human Resources
   - Recruiting
-  - ATS
+  - Applicant Tracking
   tags_raw:
   - HR
   - Recruiting
@@ -282,7 +282,7 @@ apis:
 - aid: factorial:factorial-posts-communities-api
   name: Factorial Posts and Communities API
   tags:
-  - Communities
+  - Community
   - Posts
   - Communications
   tags_raw:
@@ -423,7 +423,7 @@ tags:
 - Payroll
 - Time Off
 - Time Tracking
-- ATS
+- Applicant Tracking
 - Performance
 - Finance
 - Expenses
