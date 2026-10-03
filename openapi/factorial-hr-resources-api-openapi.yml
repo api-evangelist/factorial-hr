@@ -480,75 +480,7 @@ paths:
       tags:
       - Resources
 components:
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
-    Page:
-      name: page
-      in: query
-      schema:
-        type: integer
-        default: 1
-    PerPage:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
   schemas:
-    Meta:
-      type: object
-      properties:
-        page:
-          type: integer
-        per_page:
-          type: integer
-        total:
-          type: integer
-    Shift:
-      type: object
-      properties:
-        id:
-          type: integer
-        employee_id:
-          type: integer
-        clock_in:
-          type: string
-          format: date-time
-        clock_out:
-          type: string
-          format: date-time
-        observations:
-          type: string
-        location_type:
-          type: string
-    Leave:
-      type: object
-      properties:
-        id:
-          type: integer
-        employee_id:
-          type: integer
-        leave_type_id:
-          type: integer
-        start_on:
-          type: string
-          format: date
-        finish_on:
-          type: string
-          format: date
-        half_day:
-          type: string
-          enum:
-          - beginning_of_day
-          - end_of_day
-        description:
-          type: string
     Employee:
       type: object
       properties:
@@ -575,6 +507,74 @@ components:
           type: array
           items:
             type: integer
+    Meta:
+      type: object
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+    Leave:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        leave_type_id:
+          type: integer
+        start_on:
+          type: string
+          format: date
+        finish_on:
+          type: string
+          format: date
+        half_day:
+          type: string
+          enum:
+          - beginning_of_day
+          - end_of_day
+        description:
+          type: string
+    Shift:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        clock_in:
+          type: string
+          format: date-time
+        clock_out:
+          type: string
+          format: date-time
+        observations:
+          type: string
+        location_type:
+          type: string
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
+    PerPage:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
   securitySchemes:
     ApiKey:
       type: http
