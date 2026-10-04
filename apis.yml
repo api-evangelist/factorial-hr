@@ -472,6 +472,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/factorial-hr.png
 access: 3rd-Party
 common:
+- type: CapabilityMap
+  url: capabilities/factorial-hr-capability-edges.yml
+  name: Factorial Business Capability Map
 - type: Website
   url: https://www.factorialhr.com/
 - type: AgenticAccess
