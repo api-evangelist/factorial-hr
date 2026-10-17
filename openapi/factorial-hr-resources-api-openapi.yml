@@ -480,24 +480,27 @@ paths:
       tags:
       - Resources
 components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    PerPage:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
   schemas:
-    Shift:
-      type: object
-      properties:
-        id:
-          type: integer
-        employee_id:
-          type: integer
-        clock_in:
-          type: string
-          format: date-time
-        clock_out:
-          type: string
-          format: date-time
-        observations:
-          type: string
-        location_type:
-          type: string
     Leave:
       type: object
       properties:
@@ -520,15 +523,23 @@ components:
           - end_of_day
         description:
           type: string
-    Meta:
+    Shift:
       type: object
       properties:
-        page:
+        id:
           type: integer
-        per_page:
+        employee_id:
           type: integer
-        total:
-          type: integer
+        clock_in:
+          type: string
+          format: date-time
+        clock_out:
+          type: string
+          format: date-time
+        observations:
+          type: string
+        location_type:
+          type: string
     Employee:
       type: object
       properties:
@@ -555,26 +566,15 @@ components:
           type: array
           items:
             type: integer
-  parameters:
-    PerPage:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
-    Page:
-      name: page
-      in: query
-      schema:
-        type: integer
-        default: 1
-    Id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
+    Meta:
+      type: object
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
   securitySchemes:
     ApiKey:
       type: http
